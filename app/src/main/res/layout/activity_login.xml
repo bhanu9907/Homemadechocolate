@@ -26,10 +26,55 @@
             android:text="Homemade chocolate"
             android:textAlignment="center"
             android:textAllCaps="true"
-            android:textColor="#2f09ba"
+            android:textColor="#3F51B5"
             android:textSize="25dp"
             android:textStyle="bold"
             android:layout_alignParentLeft="true" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="10">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:gravity="right">
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="SignUp"
+                    android:padding="10dp"
+                    android:id="@+id/S1"
+                    android:layout_margin="2dp"
+                    android:background="#F44C36"
+                    android:textColor="#fff"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:gravity="left">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#F44C36">
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Login"
+                    android:layout_margin="2dp"
+                    android:padding="10dp"
+                    android:textColor="#F44C36"
+                    android:id="@+id/L1"
+                    android:background="#fff"/>
+                </LinearLayout>
+            </LinearLayout>
+
+
+        </LinearLayout>
 
 
         <!-- Email Label -->
@@ -69,14 +114,6 @@
             android:background="@drawable/button_background"
             android:text="Login"/>
 
-        <TextView android:id="@+id/link_signup"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"
-            android:text="No account yet? Create one"
-            android:gravity="center"
-            android:textColor="#1868f2"
-            android:textSize="16dip"/>
         <ProgressBar
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

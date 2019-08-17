@@ -26,6 +26,53 @@
             android:textColor="#2f09ba"
             android:textSize="29dp"
             android:textStyle="bold" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="10">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:gravity="right">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#F44C36">
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="SignUp"
+                    android:layout_margin="2dp"
+                    android:padding="10dp"
+                    android:textColor="#F44C36"
+                    android:background="#fff"
+                    android:id="@+id/S2"/>
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:gravity="left">
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Login"
+                        android:padding="10dp"
+                        android:layout_margin="2dp"
+                        android:background="#F44C36"
+                        android:textColor="#fff"
+                        android:id="@+id/L2"/>
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
 
         <!--  Name Label -->
         <LinearLayout
@@ -119,25 +166,16 @@
         </LinearLayout>
 
         <!-- Signup Button -->
-        <android.support.v7.widget.AppCompatButton
+        <Button
             android:id="@+id/btn_signup"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="24dp"
             android:layout_marginTop="24dp"
-            android:background="@color/colorAccent"
+            android:background="#F44C36"
             android:padding="12dp"
             android:text="Submit"
             android:textColor="#fff" />
-
-        <TextView
-            android:id="@+id/link_login"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"
-            android:gravity="center"
-            android:text="Already a verified member? Login"
-            android:textSize="16dip" />
 
 
     </LinearLayout>

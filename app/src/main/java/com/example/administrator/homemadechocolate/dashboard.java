@@ -1,8 +1,13 @@
 package com.example.administrator.homemadechocolate;
 
+import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Gravity;
@@ -15,34 +20,71 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class dashboard extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-private RecyclerView recyclerview1;
+    Button ak;
+// Grid view initialisation
+    ViewPager viewPager;
+    int images[] = {R.drawable.ieleven, R.drawable.archiestwo, R.drawable.archiesthree, R.drawable.archiesfour};
+    MyCustomPageAdapter myCustomPagerAdapter;
     DrawerLayout drawer;
     private ImageView navigationbar;
-    private ArrayList<Model1> model1;
-private Adapter1 adapter1;
-    private int[] myImageList = new int[]{R.drawable.rakhi_icon, R.drawable.flowers,R.drawable.birthday,R.drawable.occassion,R.drawable.relationship,R.drawable.aniversery};
-    private String[] myImageNameList = new String[]{"Rakhi","Flowers" ,"Birthday","Occassion","Relationship","Aniversery"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
+        //data of ViewPager
+        viewPager = (ViewPager)findViewById(R.id.viewPager);
+        myCustomPagerAdapter = new MyCustomPageAdapter(dashboard.this, images);
+        viewPager.setAdapter(myCustomPagerAdapter);
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
+
+        //////ViewMore Button to next page///
+        ak=(Button) findViewById(R.id.viewMore);
+        ak.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(getApplicationContext(),NewPage.class);
+                startActivity(intent);
+
+            }
+        });
 
 
 
-        recyclerview1 = findViewById(R.id.recyclerview1);
-        model1 = eatFruits();
-        adapter1 = new Adapter1(this, model1);
-        recyclerview1.setAdapter(adapter1);
-        recyclerview1.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false));
-////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////
 
+        //bottom nav bar
+        BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+
+                    case R.id.action_favorites:
+                        Intent intent = new Intent(getApplicationContext(),MainActivity2.class);
+                        startActivity(intent);
+                         break;
+                    case R.id.action_nearby:
+                        Intent i = new Intent(getApplicationContext(),MainActivity3.class);
+                        startActivity(i);
+                        break;
+                }
+                return true;
+            }
+        });
+///////////////////////////////////////////////////////////////////////////
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -120,19 +162,8 @@ private Adapter1 adapter1;
         return true;
     }
 
-    private ArrayList<Model1> eatFruits(){
 
-        ArrayList<Model1> list = new ArrayList<>();
 
-        for(int i = 0; i < 6; i++){
-            Model1 fruitModel = new Model1();
-            fruitModel.setText(myImageNameList[i]);
-            fruitModel.setImage1(myImageList[i]);
-            list.add(fruitModel);
-        }
-
-        return list;
-    }
 
 }
 

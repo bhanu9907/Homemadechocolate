@@ -23,6 +23,7 @@ import java.util.List;
 import java.util.Map;
 
 public class Signuppage extends AppCompatActivity {
+    Button L2,S2;
 
     private ProgressDialog progressDialog;
      EditText nameofinstitute,name,address,email,password,contactno;
@@ -46,16 +47,19 @@ public class Signuppage extends AppCompatActivity {
         password = findViewById(R.id.password);
         contactno = findViewById(R.id.contactno);
         loginButton = findViewById(R.id.btn_signup);
-        loginupLink = findViewById(R.id.link_login);
-        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
-
-        loginupLink.setOnClickListener(new View.OnClickListener() {
+        L2 = findViewById(R.id.L2);
+        L2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),Login.class);
-                startActivity(intent);
+                Intent i  = new Intent(getApplicationContext(),Login.class);
+                startActivity(i);
             }
         });
+
+
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
+
+
 
     }
 
